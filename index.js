@@ -82,7 +82,7 @@ function game() {
     var currentQuestion = questions[i];
     play(currentQuestion.question, currentQuestion.answer)
   }
-}https://replit.com/@tanaypratap/end-game?embed=true
+}
 
 function showScores() {
   console.log("YAY! You have scored: ", score);
