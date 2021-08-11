@@ -1,4 +1,5 @@
 var readlineSync = require("readline-sync");
+const chalk = require('chalk');
 
 var score = 0;
 
@@ -15,61 +16,61 @@ var highScores = [
 ]
 
 var questions = [{
-  question: "What is the original name of ironman ? ",
+  question: "What is the original name of ironman ? \n",
   answer: "Tony"
 }, {
-  question: "What is the name of thor's hammer ? ",
+  question: "What is the name of thor's hammer ? \n",
   answer: "Mjolnir"
 }, {
-  question: "What is the name of hulk in the movie ? ",
+  question: "What is the name of hulk in the movie ? \n",
   answer: "Bruce"
 }, {
-  question: "Before becoming Vision, what is the name of Iron Man’s A.I. butler ? ",
+  question: "Before becoming Vision, what is the name of Iron Man’s A.I. butler ? \n",
   answer: "Jarvis"
 },{
-  question: "What is Captain America’s shield made of ? ",
+  question: "What is Captain America’s shield made of ? \n",
   answer: "Vibranium"
 },{
-  question: "What is the real name of the Black Panther ? ",
+  question: "What is the real name of the Black Panther ? \n",
   answer: "Tchalla"
 },{
-  question: "What fake name does Natasha use when she first meets Tony ? ",
+  question: "What fake name does Natasha use when she first meets Tony ? \n",
   answer: "Natalie"
 },{
-  question: "Who does the Mad Titan sacrifice to acquire the Soul Stone ? ",
+  question: "Who does the Mad Titan sacrifice to acquire the Soul Stone ? \n",
   answer: "Gamora"
 },{
-  question: "Who is Black Panther’s sister ? ",
+  question: "Who is Black Panther’s sister ? \n",
   answer: "Shuri"
 },
 ]
 
 function welcome() {
-  var userName = readlineSync.question("What's your name? ");
+  var userName = readlineSync.question(chalk.black.bgWhiteBright.bold("What's your name? \n") );
 
-  console.log("Welcome " + userName + "!" + " Lets play quiz on MARVELS? ");
+  console.log(chalk.black.bgWhiteBright.bold("Welcome " + userName + "!" + " Lets play quiz on MARVELS? \n"));
 
-  var userAns = readlineSync.question("Are you ready ? Enter y or n: ");
+  var userAns = readlineSync.question(chalk.black.bgWhiteBright.bold("Are you ready ? Enter y or n: \n"));
   if (userAns === "y") {
     game();
     showScores();
     highScore();
   }
   else {
-    console.log("Thanks for coming Goodbye !");
+    console.log(chalk.black.bgMagentaBright.bold("Thanks for coming Goodbye !"));
     return;
   }
 }
 
 function play(question, answer) {
-  var userAnswer = readlineSync.question(question);
+  var userAnswer = readlineSync.question(chalk.black.bgWhiteBright.bold(question));
 
   if (userAnswer.toUpperCase() === answer.toUpperCase()) {
-    console.log("You are right!");
+    console.log(chalk.black.bgGreenBright("You are right!"));
     score = score + 1;
 
   } else {
-    console.log("You are wrong!");
+    console.log(chalk.white.bgRedBright("You are wrong!"));
 
   }
 
@@ -85,7 +86,7 @@ function game() {
 }
 
 function showScores() {
-  console.log("YAY! You have scored: ", score);
+  console.log(chalk.white.bgBlackBright.bold("YAY! You have scored: ", score));
 }
 
 function highScore() {
@@ -97,17 +98,17 @@ function highScore() {
     }
     else {
       console.log("\n");
-      console.log("Thanks For Participating..!! ");
+      console.log(chalk.black.bgWhiteBright.bold("Thanks For Participating..!! "));
 
       return;
     }
 
   }
-  console.log("Hurraaay! You have made new highscore and ur score is: ", newHighScore);
+  console.log(chalk.black.bgWhiteBright.bold("Hurraaay! You have made new highscore and ur score is: ", newHighScore));
   console.log("\n");
-  console.log("Kindly send me your highscore screenshot, so that i can update it on my database 👇");
-  highScores.map(score => console.log(score.name, " : ", score.score));
-  console.log("Thanks For Participating..!! ");
+  console.log(chalk.white.bgBlackBright.bold("Kindly send me your highscore screenshot, so that i can update it on my database 👇"));
+  highScores.map(score => console.log(chalk.white.bgBlackBright.bold(score.name, " : ", score.score)));
+  console.log(chalk.black.bgWhiteBright.bold("Thanks For Participating..!! "));
 
 }
 welcome();
