@@ -10,7 +10,7 @@ var highScores = [
 
   {
     name: "Ramesh",
-    score: 1,
+    score: 2,
   },
 ]
 
@@ -45,9 +45,9 @@ var questions = [{
 ]
 
 function welcome() {
-  var userName = readlineSync.question("What's your name? ", { hideEchoBack: true });
+  var userName = readlineSync.question("What's your name? ");
 
-  console.log("Welcome " + userName + "!" + " Lets play quiz on marvels? ");
+  console.log("Welcome " + userName + "!" + " Lets play quiz on MARVELS? ");
 
   var userAns = readlineSync.question("Are you ready ? Enter y or n: ");
   if (userAns === "y") {
@@ -65,7 +65,7 @@ function play(question, answer) {
   var userAnswer = readlineSync.question(question);
 
   if (userAnswer.toUpperCase() === answer.toUpperCase()) {
-    console.log("Yor are right!");
+    console.log("You are right!");
     score = score + 1;
 
   } else {
@@ -105,7 +105,8 @@ function highScore() {
   }
   console.log("Hurraaay! You have made new highscore and ur score is: ", newHighScore);
   console.log("\n");
-  console.log("Kindly send me your highscore screenshot, so that i can update it on my database ");
+  console.log("Kindly send me your highscore screenshot, so that i can update it on my database 👇");
+  highScores.map(score => console.log(score.name, " : ", score.score));
   console.log("Thanks For Participating..!! ");
 
 }
