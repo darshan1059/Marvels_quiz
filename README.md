@@ -1,4 +1,4 @@
-# Marvels_Quiz
+# Marvels Quiz
 This CLI app consists of a simple quiz for marvel fans to test there knowledge on marvel cinematic universe..!
 
 
